@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
 
   # s.add_dependency('typhoeus')
   s.add_dependency('crack')
+  s.add_dependency('multipart-post')
 
   s.add_development_dependency('minitest')
   s.add_development_dependency('mocha')
