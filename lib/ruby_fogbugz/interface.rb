@@ -34,12 +34,13 @@ module Fogbugz
       @token
     end
 
-    def command(action, parameters = {})
+    def command(action, parameters = {}, attachments = [])
       raise RequestError, 'No token available, #authenticate first' unless @token
       parameters[:token] = @token
 
       response = @http.request action, { 
-        :params => parameters.merge(options[:params] || {})
+        :params => parameters.merge(options[:params] || {}),
+        :attachments => attachments
       }
 
       @xml.parse(response)
